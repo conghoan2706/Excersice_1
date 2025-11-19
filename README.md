@@ -21,14 +21,6 @@ WiFi.softAP("ESP32_AP", "12345678");
 // Tham số 2: Mật khẩu (tối thiểu 8 ký tự)
 ```
 
-### Tùy chỉnh nâng cao (tùy chọn)
-```cpp
-WiFi.softAP(ssid, password, channel, hidden, max_connection);
-// channel: Kênh WiFi (1-13), mặc định 1
-// hidden: true để ẩn SSID, mặc định false
-// max_connection: Số thiết bị tối đa (1-4), mặc định 4
-```
-
 ## Cách sử dụng
 
 ### 1. Cài đặt ESP32 trong Arduino IDE
@@ -71,14 +63,6 @@ WiFi.softAP(ssid, password, channel, hidden, max_connection);
 | Channel | 1 |
 | Max Connections | 4 |
 
-## Xử lý lỗi thường gặp
-
-| Lỗi | Nguyên nhân | Giải pháp |
-|------|-------------|-----------|
-| Không tạo được AP | Mật khẩu dưới 8 ký tự | Đặt mật khẩu tối thiểu 8 ký tự |
-| Thiết bị không tìm thấy WiFi | ESP32 chưa khởi động xong | Đợi 5-10 giây sau khi nạp code |
-| Serial Monitor không hiển thị | Baud rate sai | Đặt Serial Monitor ở 115200 baud |
-| Không kết nối được vào AP | Mật khẩu sai hoặc đã đủ số kết nối | Kiểm tra mật khẩu hoặc tăng max_connection |
 
 ## Kiểm tra thiết bị đã kết nối
 
@@ -97,14 +81,7 @@ void loop() {
 }
 ```
 
-## Cải tiến có thể thêm
 
-- [ ] Thêm Web Server để hiển thị trang web khi truy cập 192.168.4.1
-- [ ] Hiển thị danh sách thiết bị đã kết nối
-- [ ] Thêm DNS Server để chuyển hướng mọi domain về ESP32
-- [ ] Tạo trang cấu hình WiFi (Captive Portal)
-- [ ] Lưu cấu hình SSID và password vào EEPROM
-- [ ] Thêm chức năng đổi mật khẩu AP động
 
 ## Output mẫu trên Serial Monitor
 
@@ -112,23 +89,5 @@ void loop() {
 AP IP: 192.168.4.1
 ```
 
-## Ứng dụng thực tế
 
-- **IoT Configuration Portal**: Cấu hình WiFi cho thiết bị IoT
-- **Local Web Server**: Tạo server web cục bộ không cần router
-- **Data Logging**: Thu thập dữ liệu từ cảm biến qua WiFi
-- **Smart Home Controller**: Điều khiển thiết bị trong nhà
-- **Wireless Sensor Network**: Mạng cảm biến không dây
 
-## Lưu ý bảo mật
-
-⚠️ **Cảnh báo**: Mật khẩu mặc định "12345678" không an toàn!
-- Đổi mật khẩu mạnh hơn cho ứng dụng thực tế
-- Sử dụng mã hóa WPA2 (mặc định)
-- Giới hạn số lượng thiết bị kết nối nếu cần
-
-## Giấy phép
-Mã nguồn mở, sử dụng tự do cho mục đích học tập và thương mại.
-
-## Tác giả
-ESP32 Access Point Project
